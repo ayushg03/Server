@@ -22,7 +22,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //Connection
-mongoose.connect(process.env.MONGO_CONNECTION_URL);
+mongoose.connect(process.env.MONGO_CONNECTION_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 //Schema  i.e the structure we want for data
 const itemSchema = new mongoose.Schema({
